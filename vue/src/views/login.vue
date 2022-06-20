@@ -26,11 +26,6 @@
       >
         <a-input-password v-model:value="formState.password" />
       </a-form-item>
-
-      <!-- <a-form-item name="remember" :wrapper-col="{ offset: 8, span: 16 }">
-      <a-checkbox v-model:checked="formState.remember">Remember me</a-checkbox>
-    </a-form-item> -->
-
       <a-form-item :wrapper-col="{ offset: 8, span: 16 }">
         <a-button type="primary" html-type="submit">Submit</a-button>
       </a-form-item>
@@ -62,7 +57,6 @@ interface FormState {
   username: string;
   password: string;
   success: boolean;
-  // remember: boolean;
 }
 export default defineComponent({
   setup() {
@@ -70,24 +64,17 @@ export default defineComponent({
       username: "",
       password: "",
       success: true
-      // remember: true,
     });
 
     const onFinish = (values: any) => {
       axios
-        .post("http://localhost:7001/api/user/login", JSON.stringify(values), {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        })
+        .post("http://localhost:7001/api/user/login", JSON.stringify(values))
         .then((res) => {
           const { code, result, message, data } = res.data;
           if (code === 200) {
-            // this.isShowTip = false;
             formState.success = true;
             console.log("登录成功");
           } else {
-            // this.isShowTip = true;
             formState.success = false;
           }
         })
@@ -95,7 +82,6 @@ export default defineComponent({
           console.log(err);
         });
     };
-
     const onFinishFailed = (errorInfo: any) => {
       console.log("Failed:", errorInfo);
     };

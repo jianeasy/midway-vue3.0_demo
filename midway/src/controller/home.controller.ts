@@ -15,7 +15,7 @@ export const dataSource = new DataSource({
 dataSource
   .initialize()
   .then(() => {
-    // console.log('Data Source has been initialized!');
+    console.log('Data Source has been initialized!');
     dataSource.getRepository(UserEntity).save({
       username: 'jack',
       password: 'redballoon',

@@ -30,7 +30,6 @@ export class UserController {
           expiresIn: '2d',
         }
       );
-      console.log('token=>', token);
       return {
         code: 200,
         result: 'success',

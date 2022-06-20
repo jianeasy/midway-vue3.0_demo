@@ -9,8 +9,6 @@ describe('test/controller/user.test.ts', () => {
 
         // make request
         const result = await createHttpRequest(app).post('/api/user/login').send(JSON.stringify({ username: 'jack', password: 'redballoon' }));
-        console.log('result=>', result);
-
         // use expect by jest
         expect(result.statusCode).toBe(200);
         expect(result.text).toBe('Hello Midwayjs!');
