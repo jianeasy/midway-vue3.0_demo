@@ -2,8 +2,6 @@ import { Controller, Get } from '@midwayjs/decorator';
 import { DataSource } from 'typeorm';
 import UserEntity from '../entity/user.entity';
 
-console.log(1);
-
 export const dataSource = new DataSource({
   type: 'sqlite',
   database: ':memory:',
