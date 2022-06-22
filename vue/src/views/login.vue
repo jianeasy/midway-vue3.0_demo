@@ -68,7 +68,7 @@ export default defineComponent({
 
     const onFinish = (values: any) => {
       axios
-        .post("http://localhost:7001/api/user/login", JSON.stringify(values))
+        .post("http://localhost:7001/api/user/login", values)
         .then((res) => {
           const { code, result, message, data } = res.data;
           if (code === 200) {
